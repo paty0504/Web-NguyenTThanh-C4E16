@@ -1,0 +1,2 @@
+There are no duplicated ids. ID mean indentification. In real life each person has his own-one-and-only identification.
+And in one database, each user has one ID.

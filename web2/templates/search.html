@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Database Intro</title>
+  </head>
+  <body>
+    <h1>Search</h1>
+    {% for customer in all_customer %}
+
+    <p>Name: {{customer.name}}</p>
+    <p>job: {{customer.job}}</p>
+    <p>gender: {{customer.gender}}</p>
+    <p>contacted: {{customer.contacted}}</p>
+    <p>Phone number: {{customer.phone}}</p>
+
+    <hr>
+    <!-- source, alternative -->
+    {% endfor %}
+  </body>
+</html>
