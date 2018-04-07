@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{detail_service.name}}</title>
+  </head>
+  <body>
+    <img src="{{detail_service.img}}" alt="">
+    <h1>Tên: {{detail_service.name}}</h1>
+    <p>Giới tính: {{"Nữ" if detail_service.gender == 0 else "Nam" }}</p>
+    <p>Năm sinh: {{detail_service.yob}}</p>
+    <p>Chiều cao: {{detail_service.height}}</p>
+    <p>3 vòng: {{detail_service.measurements}}</p>
+    <p>Địa chỉ: {{detail_service.address}}</p>
+    <p>Số đt: {{detail_service.phone}}</p>
+    <p>Mô tả: {{detail_service.description}}</p>
+
+  </body>
+</html>

@@ -1,11 +1,11 @@
 from mongoengine import *
 
-class Customer(Document):
+class Service(Document):
     name = StringField()
-
+    yob = IntField()
     gender = IntField() #0: female, 1:male
 
     phone = StringField()
     contacted = BooleanField()
-    job = StringField()
-    company = StringField()
+    address = StringField()
+    status = BooleanField()

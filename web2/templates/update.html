@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mùa Đông không lạnh</title>
+  </head>
+  <body>
+    <h1>Chỉnh sửa thông tin</h1>
+    <form  method="post">
+      <label>Tên</label>
+      <input type="text" name="name" value="{{service_update.name}}">
+      <label>Năm sinh</label>
+      <input type="number" name="yob" value="{{service_update.yob}}">
+      <label>Phone</label>
+      <input type="text" name="phone" value="{{service_update.phone}}">
+      <label>Gender</label>
+      <input type="radio" name="gender" value="0"> Nữ
+      <input type="radio" name="gender" value="1"> Nam
+      <label>Height</label>
+      <input type="number" name="height" value="{{service_update.height}}">
+      <label>Address</label>
+      <input type="text" name="address" value="{{service_update.address}}">
+
+      <input type="submit" >
+
+
+    </form>
+  </body>
+</html>

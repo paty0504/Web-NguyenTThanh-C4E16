@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mùa Đông Không Lạnh</title>
+  </head>
+  <body>
+    {% for service in services %}
+    <img src="https://via.placeholder.com/300x300" alt="No img">
+    <p>Name: {{service.name}}</p>
+    <p>{{service.yob}}</p>
+    <p>{{service.height}}</p>
+    <br>
+    <a href="{{url_for('detail', service_id=service.id)}} ">Chi tiết</a>
+    <hr>
+    <a href="{{url_for('update', service_id=service.id)}}">Chỉnh sửa</a>
+    <hr>
+    {% endfor %}
+  </body>
+</html>
