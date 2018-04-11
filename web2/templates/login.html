@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body>
+    <form  method="post">
+
+      <label>Username</label> <input type="text" name="username" value="">
+      <label>Password</label> <input type="password" name="password" value="">
+      <input type="submit">
+    </form>
+
+    <a href="{{url_for('signin')}}">If you don't have an account, Click here!</a>
+  </body>
+</html>

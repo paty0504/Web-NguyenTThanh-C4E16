@@ -3,10 +3,12 @@ from flask import *
 from mongoengine import *
 from faker import Faker
 from random import randint,choice
+from datetime import *
 fake = Faker()
 # from models.customer import Customer
 app = Flask(__name__)
 mlab.connect()
+app.secret_key = 'a-super-super-secret-key'
 class Service(Document):
     name = StringField()
     yob = IntField()
@@ -18,6 +20,16 @@ class Service(Document):
     # status = BooleanField()
     measurements = ListField()
     description = ListField()
+class User(Document):
+    name = StringField()
+    password = StringField()
+    username = StringField()
+    email = EmailField()
+class Order(Document):
+    service = ReferenceField(Service)
+    user = ReferenceField(User)
+    time = StringField()
+    is_accepted = BooleanField()
 #
 # service1 = Service(name='Tú Linh', phone='01699696969', address='Hà Nội', height='163', yob='1990', measurements=[90, 60, 90], description=["ngoan hiền", "dễ thương", "lễ phép với gia đình", ], img="static/image/tulinh.jpg " )
 # service1.save()
@@ -84,8 +96,30 @@ def service():
     return render_template('service.html', services=services )
 @app.route('/detail/<service_id>')
 def detail(service_id):
-    detail_service = Service.objects.get(id=service_id)
-    return render_template('detail.html', detail_service=detail_service)
+
+    if "logged_in" in session:
+        detail_service = Service.objects.get(id=service_id)
+        return render_template('detail.html', detail_service=detail_service)
+    else:
+        session['service_id'] = service_id
+        return redirect(url_for('login'))
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+    if request.method == "GET":
+        return render_template('login.html')
+    elif request.method == "POST":
+        form = request.form
+        username = form['username']
+        password = form['password']
+        account = User.objects(username=username, password=password).first()
+        if account == None:
+            return redirect(url_for('login'))
+        else:
+            session['logged_in'] = str(account['id'])
+            return redirect(url_for('detail', service_id=session['service_id']))
+
+
+
 
 @app.route('/update/<service_id>', methods=['GET', 'POST'])
 def update(service_id):
@@ -102,6 +136,45 @@ def update(service_id):
                             set__phone = form['phone'])
         # service_update.reload()
         return redirect(url_for('service'))
+
+@app.route('/signin', methods= ['GET', 'POST'])
+def signin():
+    if request.method == 'GET':
+        return render_template('signin.html')
+    if request.method == 'POST':
+        form = request.form
+        name = form['name']
+        email = form['email']
+        username = form['username']
+        password = form['password']
+        new_user = User(name=name, email=email, username=username, password=password)
+        new_user.save()
+        return redirect(url_for('service'))
+
+@app.route('/order/<service_id>')
+def order(service_id):
+    user_id = session['logged_in']
+    user = User.objects.get(id=user_id)
+    service = Service.objects.get(id=service_id)
+    time ='{0:%H:%M %d/%m}'.format(datetime.now())
+
+    new_order = Order(service=service,
+                      user=user,
+                      time=time,
+                      is_accepted=False)
+    new_order.save()
+    return 'Đã gửi yêu cầu!'
+@app.route('/order-page')
+def order_page():
+    all_order = Order.objects(is_accepted=False)
+    return render_template('order-page.html', all_order=all_order)
+@app.route('/verify-order/<order_id>')
+def verify_order(order_id):
+    order_to_verify = Order.objects.get(id=order_id)
+    order_to_verify['is_accepted'] = True
+    order_to_verify.save()
+    return "Your request has been verified, we'll contact you soon!"
+
 
 if __name__ == '__main__':
   app.run( debug=True)
