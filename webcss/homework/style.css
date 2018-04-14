@@ -1,0 +1,111 @@
+.bg-yellow{
+  background-color: yellow;
+}
+.w-500px{
+  width: 500px;
+}
+.h-350px{
+  height: 350px;
+}
+.h-15px{
+  height: 15px;
+}
+.text-center{
+  text-align: center;
+}
+.bg-image{
+  background-image: url('https://i0.wp.com/pennywise.sg/wp-content/uploads/2017/03/blur-background-computer.png?ssl=1');
+}
+.text-uppercase{
+  text-transform: uppercase;
+}
+.top-padding-30px{
+  padding: 30px 0px 0px 0px;
+}
+.color-white{
+  color: white;
+}
+.bg-lightblue{
+  background-color: lightblue;
+}
+.w-20{
+  width: 20%;
+}
+.h-100px{
+  height: 100px;
+}
+.center-element{
+  padding : 50px 0px 50px 0px;
+}
+
+}
+.d-inline-block{
+  display: inline-block;
+}
+#flex-box-top{
+    display: flex;
+    justify-content: space-around;
+}
+.border-radius{
+  border-radius: 100px
+}
+.bg-image1{
+  background-image: url('https://i.ebayimg.com/images/g/1pYAAOxyY3ZRyulK/s-l300.jpg');
+  background-size: cover;
+
+}
+.bg-image2{
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIZTPgkvUfOhaMy2IXcA6C0x2T1YDIohBaRAhZPFPiN5wI8oEH');
+  background-size: cover;
+
+}
+
+
+.bg-image3{
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZzZlAOKw_-R7Jyn2N9nzWg_MLcEYyrI34bEi5n-2ZiGfc9Yea');
+  background-size: cover;
+
+}
+.bg-image4{
+  background-image: url('https://i.imgflip.com/17ljfz.jpg');
+  background-size: cover;
+
+}
+
+/* .bottom-element{
+  padding: 100px 0px 10px 0px;
+} */
+
+#flex-box-mid{
+  display: flex;
+
+  justify-content: space-around;
+
+
+
+}
+.h-30px{
+  height: 30px;
+}
+.h-50px{
+  height: 50px;
+}
+.h-50{
+  height: 50%;
+}
+.h-20px{
+  height: 20px;
+}
+.h-2px{
+  height: 2px;
+}
+.bg-white{
+  background-color: white;
+}
+#flex-box-bot{
+  display: flex;
+  justify-content: space-around;
+}
+.w-25{
+  width: 25%;
+}
