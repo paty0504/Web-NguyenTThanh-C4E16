@@ -30,12 +30,12 @@ class Order(Document):
     user = ReferenceField(User)
     time = StringField()
     is_accepted = BooleanField()
-#
-# service1 = Service(name='Tú Linh', phone='01699696969', address='Hà Nội', height='163', yob='1990', measurements=[90, 60, 90], description=["ngoan hiền", "dễ thương", "lễ phép với gia đình", ], img="static/image/tulinh.jpg " )
+# #
+# service1 = Service(name='Hera', phone='01699696969', address='Hà Nội', height='160', yob='1990', measurements=[90, 60, 90], description=['Hot girl streamer' ], img="https://znews-photo-td.zadn.vn/w660/Uploaded/ohunua2/2018_02_24/14504835_310918849274454_2855615938546368512_n.jpg" )
 # service1.save()
-# service2 = Service(name='Linh Ka', phone='0987654321', address='Hà Nội', height='150', yob='2002', measurements=[70, 60, 70], description=['Hot teen 2017!', ],img='static/image/linka.jpg')
+# service2 = Service(name='Cô giáo Thảo', phone='0987654322', address='Cà Mau', height='150', yob='1997', measurements=[70, 60, 80], description=['Love teaching' ],img='https://znews-photo-td.zadn.vn/w660/Uploaded/neg_ysfyrns/2015_11_18/4.jpg')
 # service2.save()
-#create collection
+# #create collection
 
 #design database
 # for i in range(50):
@@ -49,21 +49,23 @@ class Order(Document):
 #     new_customer = Customer(name=fake.name(), job=fake.job(), gender=randint(0,1),phone=fake.phone_number(), contacted=choice([True,False]) )
 #     new_customer.save()
 
-
-@app.route('/customer')
+@app.route('/')
 def index():
-    all_customer = Customer.objects()
-    return render_template('search.html', all_customer=all_customer)
-@app.route('/uncontacted')
-def ucc():
-    uc_cus = Customer.objects(gender=1, contacted=False)
-    # uc_cus.limit(10)
-    return render_template('search.html',all_customer=uc_cus.limit(10))
-# @app.route('/search/<int:gender>')
-# def search(gender):
-#     all_services = Service.objects(gender=gender, yob__lte=1998, address__icontains='Ha Noi') #find all object with yob <= 1998,address: Ha Noi
-#
-#     return render_template('search.html', all_services=all_services)
+    return render_template('index.html')
+# @app.route('/customer')
+# def index_cus():
+#     all_customer = Customer.objects()
+#     return render_template('search.html', all_customer=all_customer)
+# @app.route('/uncontacted')
+# def ucc():
+#     uc_cus = Customer.objects(gender=1, contacted=False)
+#     # uc_cus.limit(10)
+#     return render_template('search.html',all_customer=uc_cus.limit(10))
+@app.route('/search/<int:gender>')
+def search(gender):
+    all_services = Service.objects(gender=gender) #find all object with yob <= 1998,address: Ha Noi
+
+    return render_template('search.html', all_services=all_services)
 @app.route('/admin')
 def admin():
     all_services = Service.objects()

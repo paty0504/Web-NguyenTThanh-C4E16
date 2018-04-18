@@ -3,12 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Mùa Đông không lạnh</title>
-
+    {% include 'meta-data.html' %}
   </head>
   <body>
-<h1>Not so cold winter</h1>
-<b>Bạn là nam:</b><a href="{{ url_for('search', gender=0) }}">Click vào em đi!! </a>  
-<br>
-<b>Bạn là nữ: </b>  <a href="{{ url_for('search', gender=1) }}">Click vào anh đi!!</a>
+    {% include 'homepage/navigation.html' %}
+    {% include 'homepage/carousei.html' %}
+
+    <p></p>
+    <h1 class="text-center">Chào mừng các bạn đã đến với Mùa Đông Không Lạnh</h1>
+    <p></p>
+
+    <p class="text-center font-lobster">"Chúng tôi ở đây là để giúp cho bạn có mối quan hệ tốt đẹp với gia đình người thân trong khi vẫn giải được sự tự do và riêng tư cũng như quyết định của bản thân bạn"</p>
+    {% include 'homepage/sumenh.html' %}
+    {% include 'homepage/vote.html' %}
+    {% include 'homepage/dichvu.html' %}
+
+    <div class="bg-grey text-white text-center w-100 h-50px mt-5 pt-3">
+      Được thực hiện bởi Techkids
+
+    </div>
   </body>
 </html>

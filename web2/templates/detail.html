@@ -2,19 +2,21 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>{{detail_service.name}}</title>
+    <title>Chi tiết dịch vụ</title>
+    {% include 'meta-data.html' %}
   </head>
   <body>
-    <img src="{{detail_service.img}}" alt="">
-    <h1>Tên: {{detail_service.name}}</h1>
-    <p>Giới tính: {{"Nữ" if detail_service.gender == 0 else "Nam" }}</p>
-    <p>Năm sinh: {{detail_service.yob}}</p>
-    <p>Chiều cao: {{detail_service.height}}</p>
-    <p>3 vòng: {{detail_service.measurements}}</p>
-    <p>Địa chỉ: {{detail_service.address}}</p>
-    <p>Số đt: {{detail_service.phone}}</p>
-    <p>Mô tả: {{detail_service.description}}</p>
-    <a href="{{url_for('order', service_id=detail_service.id)}}">Yêu cầu dịch vụ</a>
+    <div class="bg-dark">
+      {% include 'detail/nav.html' %}
+      <!-- <img src="{{detail_service.img}}" alt=""> -->
+      {% include 'detail/carousei.html' %}
+
+      <!-- <a href="{{url_for('order', service_id=detail_service.id)}}">Yêu cầu dịch vụ</a> -->
+      <div class="bg-grey text-white text-center w-100 h-50px mt-5 pt-3">
+        Được thực hiện bởi Techkids
+
+      </div>
+    </div>
 
   </body>
 </html>

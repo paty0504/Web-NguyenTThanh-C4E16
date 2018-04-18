@@ -2,16 +2,27 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    {% include 'meta-data.html' %}
     <title>Login</title>
   </head>
   <body>
-    <form  method="post">
+    <div class=" d-flex justify-content-center mt-5">
+      <form  method="post">
 
-      <label>Username</label> <input type="text" name="username" value="">
-      <label>Password</label> <input type="password" name="password" value="">
-      <input type="submit">
-    </form>
+        <label class="font-weight-bold border border-success">Username</label> <input type="text" name="username" value="">
+        <label class="font-weight-bold border border-success">Password</label> <input type="password" name="password" value="">
+        <input class="btn btn-success" type="submit">
+      </form>
+    </div>
+    <div class="w-100 d-flex justify-content-center">
+      <div class="text-dark pt-2 border border-success font-weight-bold">Don't have password?</div>
+      <a class="btn btn-success text-center" href="{{url_for('signin')}}">Sign-up</a>
+    </div>
 
-    <a href="{{url_for('signin')}}">If you don't have an account, Click here!</a>
+
+
+
+
+
   </body>
 </html>
